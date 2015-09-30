@@ -1,0 +1,15 @@
+---
+# file: os-service/tasks/component.yml
+
+- include: component/packages.yml
+  when: os_service_install_packages
+
+- include: component/config.yml
+  when: os_service_install_configs
+  tags:
+    - config
+
+- name: component => start services
+  service: name={{ item }} state=started enabled=yes
+  with_items: service_component_services
+  when: os_service_install_packages

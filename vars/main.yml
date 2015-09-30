@@ -1,0 +1,38 @@
+---
+# file: os-service/vars/main.yml
+
+## ROLE PARAMETERS ##
+
+# {nothing, install}
+do: install
+
+# {component-1, component-2}
+service:
+
+
+## SETUP ##
+
+# install service packages and service binaries
+# setting this to False will not start services
+os_service_install_packages: True
+
+# install configs in service folder
+os_service_install_configs: True
+
+# trigger service sync db automatically during install
+os_service_auto_sync_db: True
+
+
+## VARIABLES ##
+
+service_packages: []
+
+service_services: []
+
+service_base_configs:
+  - path: os-service-config/templates/etc/service/service.conf.j2
+    name: service.conf
+  - path: os-service-config/templates/etc/service/policy.json.j2
+    name: policy.json
+  - path: os-service-config/templates/etc/service/rootwrap.conf.j2
+    name: rootwrap.conf

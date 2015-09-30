@@ -1,0 +1,10 @@
+---
+# file: os-*/tasks/main.yml
+
+- include: vars.yml
+
+- include: commons.yml
+  when: do == 'install'
+
+- include: component.yml
+  when: do == 'install' and service == 'component'

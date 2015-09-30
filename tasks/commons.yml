@@ -1,0 +1,15 @@
+---
+# file: os-*/tasks/commons.yml
+
+- include: commons/packages.yml
+  when: os_service_install_packages
+
+- include: commons/config.yml
+  when: os_service_install_configs
+  tags:
+    - config
+
+- include: commons/initialize.yml
+  when: inventory_hostname in groups['os-service']
+  tags:
+    - initialize

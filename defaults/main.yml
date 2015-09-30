@@ -1,0 +1,23 @@
+---
+# file: os-service/defaults/main.yml
+
+## RELEASE VERSIONS ##
+
+# service release serie, e.g icehouse
+os_service_release_serie: "{{ openstack_release_serie }}"
+
+# service release version, e.g 2014.1, 2014.1.4
+# wildcards might be appended for distro package installation
+os_service_release_version: "{{ openstack_release_version }}"
+
+
+## GENERAL ##
+
+os_service_settings: something
+
+
+## SERVICE CONFIGS ##
+
+os_cfg_service_debug: "{{ openstack_log_debug }}"
+
+os_cfg_service_verbose: "{{ openstack_log_verbose }}"
